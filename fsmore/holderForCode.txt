@@ -1,0 +1,21 @@
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void fsmore(const char *file){
+    FILE *open=fopen(file,"r");
+    if(open==NULL){
+        fprintf(stderr,"%s IS READ AS NULL", file);
+        exit(1);
+    }
+    char temp=fgetc(open);
+    while(temp!=EOF){
+        putchar(temp);
+        if(temp=='\n'){
+            printf("---------PRESS ANY KEY TO CONTINUE---------");
+            getchar();
+        }
+    }
+    fclose(open);
+    printf("---------TASK COMPLETED---------");
+}
